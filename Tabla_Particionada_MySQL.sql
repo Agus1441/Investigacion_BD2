@@ -1,0 +1,13 @@
+CREATE TABLE Persona (
+    cedula VARCHAR(10) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    gmail VARCHAR(50) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    fecha_registro DATE NOT NULL
+)
+PARTITION BY RANGE (YEAR(fecha_registro)) (
+    PARTITION p2023 VALUES LESS THAN (2024),
+    PARTITION p2024 VALUES LESS THAN (2025),
+    PARTITION p2025 VALUES LESS THAN (2026)
+);
